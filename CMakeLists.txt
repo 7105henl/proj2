@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
 
-add_executable(GenericServer_master_3
+add_executable(proj2
         Astar.h
         BestFs.h
         Bfs.h
