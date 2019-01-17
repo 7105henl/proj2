@@ -42,7 +42,7 @@ static void *connectionHandler(void *context) {
     my_thread_info info = *((my_thread_info *) context);
     vector<string> bufferVector;
     //Accept and incoming connection
-    puts("Waiting for incoming connections...");
+//    puts("Waiting for incoming connections...");
     bool continueReading = true;
     while (continueReading) {
         char buffer[4096] = {0};
@@ -56,6 +56,7 @@ static void *connectionHandler(void *context) {
                 solution += '\n';
                 send(info.clientSocket, solution.c_str(), strlen(solution.c_str()), 0);
                 bufferVector.clear();
+//                bzero(buffer,sizeof(buffer)); //bzero for buffer - for saving the project not to explode
             }
         }
     }
@@ -95,7 +96,7 @@ void MyParallelServer::open(int port, ClientHandler *handler) {
     }
 
     //Accept and incoming connection
-    cout << ("Waiting for incoming connections...") << endl;
+//    cout << ("Waiting for incoming connections...") << endl;
     int indexOfThread = 0;
     pthread_t threadId[50];
     int acceptConnection;
@@ -123,7 +124,7 @@ void MyParallelServer::open(int port, ClientHandler *handler) {
                     break;
                 }
             } else {
-                cout << "Connection accepted, starting listener thread" << endl;
+//                cout << "Connection accepted, starting listener thread" << endl;
             }
         }
 

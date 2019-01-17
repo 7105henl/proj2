@@ -12,7 +12,7 @@ static void *connectionHandler(void *context) {
     vector<std::string> vic;
 
     //Accept and incoming connection
-    puts("Waiting for incoming connections...");
+//    puts("Waiting for incoming connections...");
     char buffer[4096] = {0};
     bool continueReading = true;
     while (continueReading) {
@@ -59,11 +59,11 @@ void MySerialServer::open(int port, ClientHandler *ch) {
     }
 
     //Accept and incoming connection
-    cout << ("Waiting for incoming connections...") << endl;
+//    cout << ("Waiting for incoming connections...") << endl;
     socklen_t addrlen = sizeof(sockaddr_in);
     int acceptConnection;
     if (acceptConnection = accept(serverDescriptor, (struct sockaddr *) &client, &addrlen)) {
-        cout << "Connection accepted, starting listener thread" << endl;
+//        cout << "Connection accepted, starting listener thread" << endl;
     }
 
     my_thread_info info;

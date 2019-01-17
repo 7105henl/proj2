@@ -48,56 +48,56 @@ public:
 
         } else {
             // We run each algorithm on the matrix and save the solution
-            Searcher<Point> *searcher3 = new BestFs<Point>();
-            Searcher<Point> *searcher2 = new Dfs<Point>();
-            Searcher<Point> *searcher1 = new Bfs<Point>();
-            Searcher<Point> *searcher4 = new Astar<Point>();
+            Searcher<Point> *pBestFSSearcher = new BestFs<Point>();
+//            Searcher<Point> *pDfsSearcher = new Dfs<Point>();
+//            Searcher<Point> *pBfsSearcher = new Bfs<Point>();
+//            Searcher<Point> *pAstarSearcher = new Astar<Point>();
             Tester<Point> tester;
 
-            cout<< "THE RESULTS FOR BEST FS ARE: " <<endl;
-            SearcherResult searcherResult3 = tester.testSearcher(searcher3, searchable);
-            cout<< searcherResult3.numOfEvaluatedNodes <<endl;
-            cout<< searcherResult3.cost <<endl;
-            cout<< searcherResult3.distance <<endl;
-            cout<< searcherResult3.path <<endl;
-            data = to_string(searcherResult3.cost) +","+to_string(searcherResult3.distance);
-            Utils::writeToFile(data);
-            cout<< "THE RESULTS FOR DFS ARE: " <<endl;
-            SearcherResult searcherResult2 = tester.testSearcher(searcher2, searchable);
-            cout<< searcherResult2.numOfEvaluatedNodes <<endl;
-            cout<< searcherResult2.cost <<endl;
-            cout<< searcherResult2.distance <<endl;
-            cout<< searcherResult2.path <<endl;
-            data = to_string(searcherResult2.cost) +","+to_string(searcherResult2.distance);
-            Utils::writeToFile(data);
-            cout<< "THE RESULTS FOR BFS ARE: " <<endl;
-            SearcherResult searcherResult1 = tester.testSearcher(searcher1, searchable);
-            cout<< searcherResult1.numOfEvaluatedNodes <<endl;
-            cout<< searcherResult1.cost <<endl;
-            cout<< searcherResult1.distance <<endl;
-            cout<< searcherResult1.path <<endl;
-            data = to_string(searcherResult1.cost) +","+to_string(searcherResult1.distance);
-            Utils::writeToFile(data);
-            cout<< "THE RESULTS FOR A* ARE: " <<endl;
-            SearcherResult searcherResult4 = tester.testSearcher(searcher4, searchable);
-            cout<< searcherResult4.numOfEvaluatedNodes <<endl;
-            cout<< searcherResult4.cost <<endl;
-            cout<< searcherResult4.distance <<endl;
-            cout<< searcherResult4.path <<endl;
-            data = to_string(searcherResult4.cost) +","+to_string(searcherResult4.distance);
-            Utils::writeToFile(data);
+//            cout<< "THE RESULTS FOR BEST FS ARE: " <<endl;
+            SearcherResult pBestFSResult = tester.testSearcher(pBestFSSearcher, searchable);
+//            cout<< pBestFSResult.numOfEvaluatedNodes <<endl;
+//            cout<< pBestFSResult.cost <<endl;
+//            cout<< pBestFSResult.distance <<endl;
+//            cout<< pBestFSResult.path <<endl;
+//            data = to_string(pBestFSResult.cost) +","+to_string(pBestFSResult.distance);
+//            Utils::writeToFile(data);
+//            cout<< "THE RESULTS FOR DFS ARE: " <<endl;
+//            SearcherResult pDfsResult = tester.testSearcher(pDfsSearcher, searchable);
+//            cout<< pDfsResult.numOfEvaluatedNodes <<endl;
+//            cout<< pDfsResult.cost <<endl;
+//            cout<< pDfsResult.distance <<endl;
+//            cout<< pDfsResult.path <<endl;
+//            data = to_string(pDfsResult.cost) +","+to_string(pDfsResult.distance);
+//            Utils::writeToFile(data);
+//            cout<< "THE RESULTS FOR BFS ARE: " <<endl;
+//            SearcherResult pBfsResult = tester.testSearcher(pBfsSearcher, searchable);
+//            cout<< pBfsResult.numOfEvaluatedNodes <<endl;
+//            cout<< pBfsResult.cost <<endl;
+//            cout<< pBfsResult.distance <<endl;
+//            cout<< pBfsResult.path <<endl;
+//            data = to_string(pBfsResult.cost) +","+to_string(pBfsResult.distance);
+//            Utils::writeToFile(data);
+//            cout<< "THE RESULTS FOR A* ARE: " <<endl;
+//            SearcherResult pAstarResult = tester.testSearcher(pAstarSearcher, searchable);
+//            cout<< pAstarResult.numOfEvaluatedNodes <<endl;
+//            cout<< pAstarResult.cost <<endl;
+//            cout<< pAstarResult.distance <<endl;
+//            cout<< pAstarResult.path <<endl;
+//            data = to_string(pAstarResult.cost) +","+to_string(pAstarResult.distance);
+//            Utils::writeToFile(data);
 
-            solution = searcherResult4.path;
+            solution = pBestFSResult.path;
 //            cout<< "IN ELSE STATEMENT - The Solution is: " <<endl;
 //            cout<< solution <<endl;
             this->cacheManager->saveSLNForProblem(matrix_problem, solution);
             // Delete allocated memory
-//            delete searcher1;
-//            delete searcher2;
-//            delete searcher3;
+//            delete pBfsSearcher;
+//            delete pDfsSearcher;
+//            delete pBestFSSearcher;
 
             //TODO check for better destructor - WORKS PARTIALLY
-            delete searcher4;
+            delete pBestFSSearcher;
         }
         // Delete allocated memory
         delete searchable;
