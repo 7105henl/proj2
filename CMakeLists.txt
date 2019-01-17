@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
 
-add_executable(proj2
+add_executable(
         Astar.h
         BestFs.h
         Bfs.h

@@ -16,14 +16,11 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-    /** This program runs parallel server */
-
     Solver<SearcherResult, Searchable<Point>> *solver = new SearcherSolver<Point>();
     CacheManager<string, string> *cacheManager = new FileCacheManager<string, string>();
     Server *parallelServer = new MyParallelServer();
     ClientHandler *clientHandler = new MyClientHandler<SearcherResult, Searchable<Point>>(solver, cacheManager);
     parallelServer->open(stoi(argv[1]), clientHandler);
-
 
     // TODO - create destructor and Delete allocated memory (OPTIONAL HERE)
     return 0;
