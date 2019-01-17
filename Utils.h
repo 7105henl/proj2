@@ -3,7 +3,8 @@
 
 #include <string>
 #include <vector>
-#include "bits/stdc++.h"
+#include "bits/stdc++.h" //I am working on osx and the lib isn't included well with apple's kit.. that's why i had to upload it manually like in my ubuntu
+// #include "bits/stdc++.h"  - ONLY FOR TEST!!!!!!!!!
 #include "State.h"
 #include "SearcherResult.h"
 #include "Point.h"
@@ -53,12 +54,12 @@ public:
         return res;
     }
 
-    static string parsingVectorOfPointsToPath(vector<string> vic) {
+    static string parsingVectorOfPointsToPath(vector<string> vectorIter) {
         string calculation;
         int p1_x, p1_y;
         int p2_x, p2_y;
         // instead of reverse the vector, iteration starts from the end.
-        for (vector<string>::iterator it = vic.end(); it > vic.begin() + 1;) {
+        for (vector<string>::iterator it = vectorIter.end(); it > vectorIter.begin() + 1;) {
             it--;
             p1_x = stoi(delimiterAndIndex(*it, ',', 1));
             p1_y = stoi(delimiterAndIndex(*it, ',', 2));

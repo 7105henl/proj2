@@ -18,22 +18,13 @@
 int main(int argc, char *argv[]) {
     /** This program runs parallel server */
 
-    /**  New Solver with Object Adapter "Searcher-solver" injected (for algorithm-to-matrix)  **/
     Solver<SearcherResult, Searchable<Point>> *solver = new SearcherSolver<Point>();
-    /**  New Cache Manager with File manager injected  **/
     CacheManager<string, string> *cacheManager = new FileCacheManager<string, string>();
-    /**  New Server with parallel server injected  **/
     Server *parallelServer = new MyParallelServer();
-    /**  New Client with MyClientHandler injected  **/
     ClientHandler *clientHandler = new MyClientHandler<SearcherResult, Searchable<Point>>(solver, cacheManager);
-    /**  Start the server on specific client handler**/
     parallelServer->open(stoi(argv[1]), clientHandler);
 
 
-    // Delete allocated memory
-    delete cacheManager;
-    delete solver;
-    delete parallelServer;
-    delete clientHandler;
+    // TODO - create destructor and Delete allocated memory (OPTIONAL HERE)
     return 0;
 }
